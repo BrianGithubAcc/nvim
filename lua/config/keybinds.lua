@@ -8,21 +8,27 @@ local function sync_lazy_keys_to_whichkey()
 		if plugin.keys then
 			for _, keybind in ipairs(plugin.keys) do
 				if type(keybind) == "table" and keybind[1] and keybind.desc then
-					-- Insert a table { key, desc = description } instead of dictionary entry
-					table.insert(keymaps, { keybind[1], desc = keybind.desc })
+					-- Insert a v3 spec entry: { key, command?, desc = "..." }
+					table.insert(keymaps, {
+						keybind[1], -- key
+						keybind[2], -- command (can be nil)
+						desc = keybind.desc,
+						mode = keybind.mode or "n", -- default to normal mode
+						silent = keybind.silent,
+						expr = keybind.expr,
+						remap = keybind.remap,
+					})
 				end
 			end
 		end
 	end
 
-	-- Optional: group all <leader>f keys under "+find"
-	wk.register({
-		{ "<leader>f", name = "+find" },
-	})
+	-- Add any custom groups in v3 format (use group instead of name)
+	table.insert(keymaps, { "<leader>f", group = "find" })
 
-	-- Register all extracted keys with descriptions in new spec format
-	wk.register(keymaps)
+	-- Register all keys using v3 format
+	wk.add(keymaps)
 end
 
--- Call after lazy and which-key are loaded and plugins are set up
+-- Ensure this is called after Lazy and plugins are loaded
 sync_lazy_keys_to_whichkey()
