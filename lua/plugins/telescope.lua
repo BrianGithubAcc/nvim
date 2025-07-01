@@ -1,9 +1,21 @@
--- plugins/telescope.lua:
+-- plugins/telescope.lua
 return {
-	"nvim-telescope/telescope-file-browser.nvim",
-	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-	config = function()
-		require("telescope").load_extension("file_browser")
-	end
-
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
+		},
+		cmd = "Telescope",
+		keys = {
+			{ ",ff", ":Telescope file_browser path=%:p:h<CR>", mode = "n", desc = "File Browser" },
+			{ ",fg", ":Telescope oldfiles<CR>",                mode = "n", desc = "Old Files" },
+			{ ",fb", ":Telescope buffers<CR>",                 mode = "n", desc = "Buffers" },
+		},
+		config = function()
+			local telescope = require("telescope")
+			telescope.setup({})
+			telescope.load_extension("file_browser")
+		end,
+	},
 }
