@@ -1,6 +1,5 @@
 --config/whichKey.lua
 
-
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
@@ -8,16 +7,6 @@ return {
 		"echasnovski/mini.icons",
 	},
 	opts = {},
-	keys = {
-		{
-			"<leader>?",
-			function()
-				require("which-key").show({ global = false })
-			end,
-			desc = "Buffer Local Keymaps (which-key)",
-			mode = "n",
-		},
-	},
 	config = function(_, opts)
 		-- Setup mini.icons first (do NOT call get() here to avoid errors)
 		require("mini.icons").setup()

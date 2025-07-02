@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.wo.number = true
+vim.api.nvim_set_hl(0, "@lsp.type.variable.rust", { link = "TSVariable" })
+vim.api.nvim_set_hl(0, "@lsp.type.unresolvedReference.rust", { link = "Character" })
+
 -- Automatically change local working directory to current buffer folder
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function()
