@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+ vim.api.nvim_set_option("clipboard","unnamed") 
+
+
 vim.wo.number = true
 vim.api.nvim_set_hl(0, "@lsp.type.variable.rust", { link = "TSVariable" })
 vim.api.nvim_set_hl(0, "@lsp.type.unresolvedReference.rust", { link = "Character" })
