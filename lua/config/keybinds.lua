@@ -1,8 +1,8 @@
 local wk = require("which-key")
 local lazy = require("lazy")
 --Command Linebinds
-vim.api.nvim_create_user_command('W', function()
-  require('config.utils').sudo_write()
+vim.api.nvim_create_user_command("W", function()
+	require("config.utils").sudo_write()
 end, {})
 
 local function sync_lazy_keys_to_whichkey()
@@ -34,4 +34,3 @@ end
 
 -- Ensure this is called after Lazy and plugins are loaded
 sync_lazy_keys_to_whichkey()
-

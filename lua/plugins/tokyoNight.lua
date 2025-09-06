@@ -9,14 +9,14 @@ return {
 			style = "moon",
 			-- disable italic for functions
 			styles = {
-				functions = {}
+				functions = {},
 			},
 			-- Change the "hint" color to the "orange" color, and make the "error" color bright red
 			on_colors = function(colors)
 				colors.hint = colors.orange
 				colors.error = "#ff0000"
-			end
+			end,
 		})
-		vim.cmd [[colorscheme tokyonight]]
-	end
+		vim.cmd([[colorscheme tokyonight]])
+	end,
 }
