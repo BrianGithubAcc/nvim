@@ -13,6 +13,7 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls")
 		-- Handeled by rustaceanvim
 		--vim.lsp.enable("rust_analyzer")
 	end,
