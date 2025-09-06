@@ -1,6 +1,6 @@
 local wk = require("which-key")
 local lazy = require("lazy")
---Command Linebinds
+--Command Line binds
 vim.api.nvim_create_user_command("W", function()
 	require("config.utils").sudo_write()
 end, {})

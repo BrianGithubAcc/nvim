@@ -16,7 +16,6 @@ return {
 				"z=",
 				function()
 					require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({
-						previewer = false,
 						layout_config = {
 							width = 50,
 							height = 15,
