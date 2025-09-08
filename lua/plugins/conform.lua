@@ -18,12 +18,15 @@ return {
 	---@type conform.setupOpts
 	opts = {
 		-- Define your formatters
+		-- ONLY USE WHEN LSP DOES NOT SUPPORT
 		formatters_by_ft = {
-			lua = { "stylua" },
-			python = { "isort", "black" },
-			javascript = { "prettierd", "prettier", stop_after_first = true },
+			-- lua = { "stylua" },
+			--python = { "isort", "black" },
+			--javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
 		-- Set default options
+		-- Now that lsp does autoformat may be better to use lsp to prevent fighting
+		-- Although when lsp does not support still use a dedicated formatter
 		default_format_opts = {
 			lsp_format = "fallback",
 		},

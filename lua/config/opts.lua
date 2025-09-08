@@ -4,6 +4,10 @@ vim.g.maplocalleader = "\\"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.spell = true
 vim.opt.spelllang = "en_gb"
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+vim.lsp.on_type_formatting.enable()
 
 vim.wo.number = true
 vim.api.nvim_set_hl(0, "@lsp.type.variable.rust", { link = "TSVariable" })

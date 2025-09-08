@@ -49,5 +49,9 @@ return {
 		-- See the fuzzy documentation for more information
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
+	config = function()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		capabilities.textDocument.onTypeFormatting = { dynamicRegistration = false }
+	end,
 	opts_extend = { "sources.default" },
 }
